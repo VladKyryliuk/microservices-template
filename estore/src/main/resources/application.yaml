@@ -8,6 +8,6 @@ server:
   port: 8070
 spring:
   application:
-    name: dean
+    name: estore
   config:
     import: optional:configserver:http://localhost:8888
