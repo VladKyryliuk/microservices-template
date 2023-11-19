@@ -1,14 +1,17 @@
 package com.example.dean.service;
 
+import com.example.dean.client.CustomerClient;
 import com.example.dean.model.EGoods;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Service
+@RequiredArgsConstructor
 public class EGoodsService {
+    private final CustomerClient client;
+
     private List<EGoods> list = new ArrayList<>(
             Arrays.asList(
                     new EGoods(1,"Mi 11 Pro",25145.00,"Смартфон компанії Xiaomi"),
@@ -42,5 +45,13 @@ public class EGoodsService {
     public EGoods update(EGoods eGoods) {
         list.set(eGoods.getId(),eGoods);
         return eGoods;
+    }
+
+    public Map<String,List<String>> PersonWhoBuyPhone(String productName){
+        Map<String, List<String>> result = new HashMap<>();
+        List<String> customers = client.clientFromCustomer(productName);
+
+        result.put(productName,customers);
+        return result;
     }
 }

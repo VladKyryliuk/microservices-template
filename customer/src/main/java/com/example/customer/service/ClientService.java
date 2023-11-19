@@ -71,7 +71,7 @@ public class ClientService {
                 item.setId(UUID.randomUUID().toString());
                 item.setNameProduct(eGoodsDTO.getNameProduct());
                 item.setPrice(eGoodsDTO.getPrice());
-                item.setQuantity(1); // Початкова кількість 1
+                item.setQuantity(1);
 
                 items.add(item);
             }
@@ -80,12 +80,16 @@ public class ClientService {
         basket.setItems(items);
         client.setBasket(basket);
 
-        // Зберегти клієнта в репозиторії
         return repository.save(client);
     }
     public List<Client> getAll(){
        return repository.findAll();
     }
 
+    public List<String> ClientWhoHavePhone(String productName){
+        List<Client> clients = repository.findByBasket_Items_NameProduct(productName);
+        List<String> ClientsName = clients.stream().map(client -> client.getName()).toList();
+        return ClientsName;
+    }
 
 }

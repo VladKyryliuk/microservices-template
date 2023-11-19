@@ -23,4 +23,11 @@ public class ClientController {
     public List<Client> getAll() {
         return clientService.getAll();
     }
+
+    @GetMapping("GetClientsWhoHavePhone/{productName}")
+    public List<String> getAllClients(@PathVariable String productName) {
+        return clientService.ClientWhoHavePhone(productName);
+    }
+
 }
+

@@ -11,3 +11,7 @@ spring:
     name: estore
   config:
     import: optional:configserver:http://localhost:8888
+
+application:
+  config:
+    customer-url: http://localhost:8075/api/v1/client/
