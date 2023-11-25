@@ -1,0 +1,27 @@
+eureka:
+  client:
+    register-with-eureka: false
+server:
+  port: 8022
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: estore
+          uri: http://localhost:8070
+          predicates:
+            - Path=/api/v1/e-goods/**
+        - id: customers
+          uri: http://localhost:8075
+          predicates:
+            - Path=/api/v1/client/**
+  application:
+    name: gateway
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

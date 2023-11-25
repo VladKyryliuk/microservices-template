@@ -1,0 +1,26 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+server:
+  port: 8075
+spring:
+  application:
+    name: customers
+
+  data:
+    mongodb:
+      database: clients
+      host: localhost
+      port: 27017
+
+application:
+  config:
+    estore-url: http://localhost:8022/api/v1/e-goods
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
