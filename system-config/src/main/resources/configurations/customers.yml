@@ -9,10 +9,13 @@ server:
 spring:
   application:
     name: customers
-  config:
-    import: optional:configserver:http://localhost:8888
+
   data:
     mongodb:
       database: clients
       host: localhost
       port: 27017
+
+application:
+  config:
+    estore-url: http://localhost:8022/api/v1/e-goods

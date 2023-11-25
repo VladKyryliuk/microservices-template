@@ -24,35 +24,6 @@ public class ClientService {
 
     }
 
-//    public Client createClient(String name, String numberPhone, int eGoodsId){
-//        ResponseEntity<EGoodsDTO> eGoodsResponse = customerService.getEGoodById(eGoodsId);
-//
-//        if (eGoodsResponse.getStatusCode().is2xxSuccessful()) {
-//            EGoodsDTO eGoodsDTO = eGoodsResponse.getBody();
-//
-//            // Створити клієнта та додати товар у кошик
-//            Client client = new Client();
-//            client.setName(name);
-//            client.setNumberPhone(numberPhone);
-//
-//            Item item = new Item();
-//            item.setId(UUID.randomUUID().toString());
-//            item.setNameProduct(eGoodsDTO.getNameProduct());
-//            item.setPrice(eGoodsDTO.getPrice());
-//            item.setQuantity(1); // Початкова кількість 1
-//
-//            Basket basket = new Basket();
-//            List<Item> items = new ArrayList<>();
-//            items.add(item);
-//            basket.setItems(items);
-//            client.setBasket(basket);
-//
-//
-//            // Зберегти клієнта в репозиторії
-//            return repository.save(client);
-//        }
-//        return null;
-//    }
     public Client createClient(String name, String numberPhone, List<Integer> eGoodsIds) {
         Client client = new Client();
         client.setName(name);
