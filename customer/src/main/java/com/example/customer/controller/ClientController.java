@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/client/")
+@RequestMapping("/api/v1/client")
 @RequiredArgsConstructor
 public class ClientController {
     private final ClientService clientService;
@@ -19,12 +19,12 @@ public class ClientController {
         return "Клієнта створено";
     }
 
-    @GetMapping("GetAllClients")
+    @GetMapping("/GetAllClients")
     public List<Client> getAll() {
         return clientService.getAll();
     }
 
-    @GetMapping("GetClientsWhoHavePhone/{productName}")
+    @GetMapping("/GetClientsWhoHavePhone/{productName}")
     public List<String> getAllClients(@PathVariable String productName) {
         return clientService.ClientWhoHavePhone(productName);
     }

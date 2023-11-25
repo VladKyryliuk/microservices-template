@@ -14,4 +14,4 @@ spring:
 
 application:
   config:
-    customer-url: http://localhost:8075/api/v1/client/
+    customer-url: http://localhost:8022/api/v1/client/

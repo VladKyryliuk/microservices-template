@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 @RequiredArgsConstructor
 public class CustomerService {
-    private final String ESTORE_BASE_URL = "http://localhost:8070/api/v1/e-goods/";
+    private final String ESTORE_BASE_URL = "http://localhost:8022/api/v1/e-goods/";
 
     private final RestTemplate restTemplate;
     public ResponseEntity<EGoodsDTO> getEGoodById(int id){

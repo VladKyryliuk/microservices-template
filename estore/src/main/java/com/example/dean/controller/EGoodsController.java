@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1/e-goods/")
+@RequestMapping("/api/v1/e-goods")
 @RequiredArgsConstructor
 public class EGoodsController {
     private final EGoodsService service;
@@ -20,12 +20,12 @@ public class EGoodsController {
         return service.getAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     EGoods getById(@PathVariable int id){
         return service.getById(id);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     void del(@PathVariable int id){
         service.del(id);
     }
@@ -38,7 +38,7 @@ public class EGoodsController {
        service.update(eGoods);
     }
 
-    @GetMapping ("ClientsWhoBuyPhone/{productName}")
+    @GetMapping ("/ClientsWhoBuyPhone/{productName}")
     public Map<String,List<String>> getClients(@PathVariable String productName){
      return service.PersonWhoBuyPhone(productName);
     }
