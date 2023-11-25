@@ -13,3 +13,8 @@ spring:
 application:
   config:
     customer-url: http://localhost:8022/api/v1/client
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

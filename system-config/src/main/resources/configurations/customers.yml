@@ -19,3 +19,8 @@ spring:
 application:
   config:
     estore-url: http://localhost:8022/api/v1/e-goods
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

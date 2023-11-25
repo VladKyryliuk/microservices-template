@@ -20,3 +20,8 @@ spring:
             - Path=/api/v1/client/**
   application:
     name: gateway
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
